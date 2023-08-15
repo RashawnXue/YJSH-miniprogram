@@ -334,7 +334,12 @@
             "titleNView": false
         },
         "disableScroll": true
-    }
+    },{
+		"path": "pages/component/home-page/home-page",
+		"style": {
+			"navigationBarTitleText": "主页"
+		}
+	}
 }
 ],
 	"subPackages": [{

@@ -38,21 +38,17 @@
 					component: 0,
 					API: 1,
 					extUI: 2,
-					template: 3
 				},
 				current: 0,
 				indexPage: [{
-					tabBar: '/pages/tabBar/component/component',
+					tabBar: '/pages/tabBar/home/home',
 					index: '/pages/component/view/view'
 				}, {
-					tabBar: '/pages/tabBar/API/API',
+					tabBar: '/pages/tabBar/blueberry/blueberry',
 					index: '/pages/API/set-navigation-bar-title/set-navigation-bar-title'
 				}, {
-					tabBar: '/pages/tabBar/extUI/extUI',
+					tabBar: '/pages/tabBar/documentary/documentary',
 					index: '/pages/extUI/badge/badge'
-				}, {
-					tabBar: '/pages/tabBar/template/template',
-					index: '/pages/template/nav-button/nav-button'
 				}]
 			}
 		},

@@ -9,10 +9,9 @@
 </template>
 
 <script>
-	import componentPage from '@/pages/tabBar/component/component.nvue'
-	import API from '@/pages/tabBar/API/API.nvue'
-	import extUI from '@/pages/tabBar/extUI/extUI.nvue'
-	import templatePage from '@/pages/tabBar/template/template.nvue'
+	import componentPage from '@/pages/tabBar/home/home.nvue'
+	import API from '@/pages/tabBar/blueberry/blueberry.nvue'
+	import extUI from '@/pages/tabBar/documentary/documentary.nvue'
 	import {
 		mapMutations,
 		mapState
@@ -25,7 +24,6 @@
 					'component',
 					'API',
 					'extUI',
-					'template'
 				],
 				isPC: false
 			}
@@ -34,7 +32,6 @@
 			componentPage,
 			API,
 			extUI,
-			templatePage
 		},
 		computed: {
 			...mapState({
