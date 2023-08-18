@@ -9,7 +9,7 @@
 </template>
 
 <script>
-	import componentPage from '@/pages/tabBar/home/home.nvue'
+	import componentPage from '@/pages/tabBar/home/home.vue'
 	import API from '@/pages/tabBar/blueberry/blueberry.nvue'
 	import extUI from '@/pages/tabBar/documentary/documentary.nvue'
 	import {
