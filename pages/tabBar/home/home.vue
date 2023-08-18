@@ -9,7 +9,7 @@
 				<view class="tui-banner-box">
 					<swiper :indicator-dots="true" :autoplay="true" :interval="5000" :duration="150" class="tui-banner-swiper"
 					 :circular="true" indicator-color="rgba(255, 255, 255, 0.8)" indicator-active-color="#fff">
-						<swiper-item v-for="(item, index) in banner" :key="index" @tap.stop="detail">
+						<swiper-item v-for="(item, index) in banner" :key="index">
 							<image :src="'https://thorui.cn/images/mall/banner/' + item" class="tui-slide-image" mode="scaleToFill" />
 						</swiper-item>
 					</swiper>
@@ -20,7 +20,7 @@
 		<view class="tui-product-box">
 			<view class="tui-block__box tui-mtop__20">
 				<view class="tui-new-box">
-					<view class="tui-new-item1" >
+					<view class="tui-new-item1" @click="onclick(1)" >
 						<view class="tui-title-box">
 							<view>
 								<h2 > 产业展示I</h2>
@@ -28,7 +28,7 @@
 						</view>
 					</view>
 					
-					<view class="tui-new-item2">
+					<view class="tui-new-item2" @click="onclick(2)">
 						<view class="tui-title-box">
 							<view class>
 								<h2> 产业展示II</h2>
@@ -55,7 +55,11 @@
 			};
 		},
 		methods: {
-			
+			onclick: function(idx){
+				uni.navigateTo({
+					url: '/pages/component/detail/detail'
+				});
+			}
 		},
 		onPullDownRefresh: function() {
 			let loadData = JSON.parse(JSON.stringify(this.productList));

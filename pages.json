@@ -63,6 +63,22 @@
 			}
 		},
 		{
+			"path": "pages/component/detail/detail",
+			"style": {
+				"navigationBarTitleText": "产业成果",
+				"app-plus": {
+					"titleNView": {
+						"buttons": [{
+							"text": "\ue534",
+							"fontSrc": "/static/uni.ttf",
+							"fontSize": "22px",
+							"color": "#FFFFFF"
+						}]
+					}
+				}
+			}
+		},
+		{
 			"path": "pages/component/view/view",
 			"style": {
 				"navigationBarTitleText": "view"
