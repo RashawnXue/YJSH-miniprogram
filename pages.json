@@ -1331,9 +1331,10 @@
 	},
 	"tabBar": {
 		"color": "#7A7E83",
-		"selectedColor": "#007AFF",
+		"selectedColor": "#00aa7f",
+		"fontSize": "38px",
 		"borderStyle": "black",
-		"backgroundColor": "#F8F8F8",
+		"backgroundColor": "#ffffff",
 		"list": [{
 				"pagePath": "pages/tabBar/home/home",
 				"iconPath": "static/component.png",
@@ -1342,8 +1343,8 @@
 			},
 			{
 				"pagePath": "pages/tabBar/blueberry/blueberry",
-				"iconPath": "static/api.png",
-				"selectedIconPath": "static/apiHL.png",
+				"iconPath": "static/blueberry/icon.png",
+				"selectedIconPath": "static/blueberry/icon-select.png",
 				"text": "蓝莓知识"
 			},
 			{
