@@ -335,8 +335,17 @@
         },
         "disableScroll": true
     }
-}
-],
+	}
+        ,{
+            "path" : "pages/tabBar/documentary/Modal",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "Modal",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
 	"subPackages": [{
 			"root": "pages/API",
 			"pages": [{
@@ -1065,7 +1074,7 @@
 						"enablePullDownRefresh": false
 					}
 				}
-			]
+            ]
 		},
 		{
 			"root": "pages/template",
