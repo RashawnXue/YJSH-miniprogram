@@ -1,3 +1,4 @@
+
 <template>
 	<view class="lime-echart" :style="customStyle" v-if="canvasId" ref="limeEchart" :aria-label="ariaLabel">
 		<!-- #ifndef APP-NVUE -->
@@ -12,9 +13,9 @@
 			@touchmove="touchMove"
 			@touchend="touchEnd"
 		/>
-		<!-- <canvas
+		<canvas
 			class="lime-echart__canvas"
-			v-else-if="isPC"
+			v-else-if="isPc"
 			:style="canvasStyle"
 			:id="canvasId"
 			:canvas-id="canvasId"
@@ -22,7 +23,7 @@
 			@mousedown="touchStart"
 			@mousemove="touchMove"
 			@mouseup="touchEnd"
-		/> -->
+		/>
 		<canvas
 			class="lime-echart__canvas"
 			v-else
@@ -36,15 +37,6 @@
 			@touchmove="touchMove"
 			@touchend="touchEnd"
 		/>
-		<view class="lime-echart__mask"
-			v-if="isPC"
-			@mousedown="touchStart"
-			@mousemove="touchMove"
-			@mouseup="touchEnd"
-			@touchstart="touchStart"
-			@touchmove="touchMove"
-			@touchend="touchEnd">
-		</view>
 		<canvas v-if="isOffscreenCanvas" :style="offscreenStyle" :canvas-id="offscreenCanvasId"></canvas>
 		<!-- #endif -->
 		<!-- #ifdef APP-NVUE -->
@@ -122,7 +114,7 @@ export default {
 			finished: false,
 			file: '',
 			platform: '',
-			isPC: false,
+			isPc: false,
 			isDown: false,
 			isOffscreenCanvas: false,
 			offscreenWidth: 0,
@@ -148,7 +140,7 @@ export default {
 		this.clear()
 		this.dispose()
 		// #ifdef H5
-		if(this.isPC) {
+		if(this.isPc) {
 			document.removeEventListener('mousewheel', this.mousewheel)
 		}
 		// #endif
@@ -159,7 +151,7 @@ export default {
 		this.clear()
 		this.dispose()
 		// #ifdef H5
-		if(this.isPC) {
+		if(this.isPc) {
 			document.removeEventListener('mousewheel', this.mousewheel)
 		}
 		// #endif
@@ -168,7 +160,7 @@ export default {
 	created() {
 		// #ifdef H5
 		if(!('ontouchstart' in window)) {
-			this.isPC = true
+			this.isPc = true
 			document.addEventListener('mousewheel', this.mousewheel)
 		}
 		// #endif
@@ -390,60 +382,43 @@ export default {
 			// #endif
 		},
 		// #ifndef APP-NVUE
-		getRelative(e, touches) {
-			let { clientX, clientY } = e
-			if(!(clientX && clientY) && touches && touches[0]) {
-				clientX = touches[0].clientX
-				clientY = touches[0].clientY
-			}
-			return {x: clientX - this.rect.left, y: clientY - this.rect.top, wheelDelta: e.wheelDelta || 0}
+		getRelative(e) {
+			return {x: e.pageX - this.rect.left, y: e.pageY - this.rect.top, wheelDelta: e.wheelDelta}
 		},
 		getTouch(e, touches) {
 			const {x} = touches && touches[0] || {}
-			return x ? touches[0] : this.getRelative(e, touches);
+			return x ? touches[0] : this.getRelative(e);
 		},
 		touchStart(e) {
 			this.isDown = true
-			const next = () => {
-				const touches = convertTouchesToArray(e.touches)
-				if(this.chart) {
-					const touch = this.getTouch(e, touches)
-					this.startX = touch.x
-					this.startY = touch.y
-					this.startT = new Date()
-					const handler = this.chart.getZr().handler;
-					dispatch.call(handler, 'mousedown', touch)
-					dispatch.call(handler, 'mousemove', touch)
-					handler.processGesture(wrapTouch(e), 'start');
-					clearTimeout(this.endTimer);
-				}
-				
+			const touches = convertTouchesToArray(e.touches)
+			if (this.chart && (touches.length > 0 && e.type != 'mousemove' || e.type == 'mousedown')) {
+				const touch = this.getTouch(e, touches)
+				this.startX = touch.x
+				this.startY = touch.y
+				this.startT = new Date()
+				const handler = this.chart.getZr().handler;
+				dispatch.call(handler, 'mousedown', touch)
+				dispatch.call(handler, 'mousemove', touch)
+				handler.processGesture(wrapTouch(e), 'start');
+				clearTimeout(this.endTimer);
 			}
-			if(this.isPC) {
-				getRect(`#${this.canvasId}`, {context: this}).then(res => {
-					this.rect = res
-					next()
-				})
-				return
-			}
-			next()
 		},
 		touchMove(e) {
-			if(this.isPC && this.enableHover && !this.isDown) {this.isDown = true}
+			if(this.isPc && this.enableHover && !this.isDown) {this.isDown = true}
 			const touches = convertTouchesToArray(e.touches)
-			if (this.chart && this.isDown) {
+			if (this.chart && ((touches.length > 0) && e.type != 'mousemove' || e.type == 'mousemove' && this.isDown)) {
 				const handler = this.chart.getZr().handler;
 				dispatch.call(handler, 'mousemove', this.getTouch(e, touches))
 				handler.processGesture(wrapTouch(e), 'change');
 			}
-			
 		},
 		touchEnd(e) {
 			this.isDown = false
 			if (this.chart) {
 				const touches = convertTouchesToArray(e.changedTouches)
 				const {x} = touches && touches[0] || {}
-				const touch = (x ? touches[0] : this.getRelative(e, touches)) || {};
+				const touch = (x ? touches[0] : this.getRelative(e)) || {};
 				const handler = this.chart.getZr().handler;
 				const isClick = Math.abs(touch.x - this.startX) < 10 && new Date() - this.startT < 200;
 				dispatch.call(handler, 'mouseup', touch)
@@ -489,14 +464,5 @@ export default {
 	flex: 1;
 	/* #endif */
 }
-/* #ifndef APP-NVUE */
-.lime-echart__mask {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	left: 0;
-	top: 0;
-	z-index: 1;
-}
-/* #endif */
 </style>
+
