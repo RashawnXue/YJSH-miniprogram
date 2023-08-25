@@ -1,5 +1,7 @@
+
 const cacheChart = {}
 const fontSizeReg = /([\d\.]+)px/;
+
 class EventEmit {
 	constructor() {
 		this.__events = {};
@@ -45,6 +47,7 @@ class EventEmit {
 			}
 		}
 	}
+
 }
 class Image {
 	constructor() {
@@ -377,9 +380,9 @@ export function setCanvasCreator(echarts, {canvas, node}) {
 		echarts.setPlatformAPI({
 			loadImage: canvas.setChart ? loadImage : null,
 			createCanvas(){
-				const key = 'createOffscreenCanvas'
-				return uni.canIUse(key) && uni[key] ? uni[key]({type: '2d'}) : canvas
+				return uni.canIUse('createOffscreenCanvas') ? uni.createOffscreenCanvas({type: '2d'}) : canvas
 			}
 		})
 	}
+
 }

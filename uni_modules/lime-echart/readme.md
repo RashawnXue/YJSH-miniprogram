@@ -1,3 +1,4 @@
+
 # echarts 图表 <span style="font-size:16px;">👑👑👑👑👑 <span style="background:#ff9d00;padding:2px 4px;color:#fff;font-size:10px;border-radius: 3px;">全端</span></span>
 > 一个基于 JavaScript 的开源可视化图表库   [查看更多 站点1](https://limeui.qcoon.cn/#/echart) |  [查看更多 站点2](http://liangei.gitee.io/limeui/#/echart)  <br>
 > 基于 echarts 做了兼容处理，更多示例请访问  [uni示例 站点1](https://limeui.qcoon.cn/#/echart-example) | [uni示例 站点2](http://liangei.gitee.io/limeui/#/echart-example) | [官方示例](https://echarts.apache.org/examples/zh/index.html)     <br>
@@ -241,11 +242,7 @@ this.$refs.chart.resize({width: 375, height: 375})
 ["Int8","Uint8","Uint8_Clamped","Int16","Uint16","Int32","Uint32","Float32","Float64"],(function(t,e){return t["[object "+e.replace('_','')+"Array]"]
 ```
 
-### vue3
-如果您是使用 **vite + vue3** 非微信小程序可能会遇到`echarts`文件缺少`wx`判断导致无法使用或缺少`tooltip`<br>
-
-方式一：可以在`echarts.min.js`文件开头增加以下内容，参考插件内的echart.min.js的做法
-
+- 注意 如果您是使用 **vite + vue3** 非wx平台可能会遇到`echarts`文件缺少`wx`判断导致无法使用,您可以在`echarts.min.js`文件开头增加以下内容，参考插件内的echart.min.js的做法
 ```js
 var prefix = () => {
 	var UNDEFINED = 'undefined'
@@ -268,7 +265,7 @@ var wx = prefix();
     Copyright (c) Microsoft Corporation.
 ```
 
-方式二：在`vite.config.js`的`define`设置环境
+- 或者在`vite.config.js`的`define`设置环境
 
 ```js
 //  或者在`vite.config.js`的`define`设置环境
@@ -329,4 +326,5 @@ export default defineConfig({
 ## 打赏
 如果你觉得本插件，解决了你的问题，赠人玫瑰，手留余香。  
 ![](https://testingcf.jsdelivr.net/gh/liangei/image@1.9/alipay.png)
+
 ![](https://testingcf.jsdelivr.net/gh/liangei/image@1.9/wpay.png)
