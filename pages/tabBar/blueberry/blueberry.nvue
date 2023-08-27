@@ -1,148 +1,180 @@
 <template>
-	<list :id="parentListId" class="page" :bounce="false" isSwiperList="true">
-		<refresh class="refresh" @refresh="onrefresh" @pullingdown="onpullingdown"
-			:display="refreshing ? 'show' : 'hide'">
-			<div class="refresh-view">
-				<text class="loading-text">{{refreshText}}</text>
-			</div>
-		</refresh>
-		<cell>
-			<view id="head" class="header">
-				<text class="header-title">header</text>
+	<!-- <view class="content">
+		<view style="background-image: linear-gradient(to bottom, #dcf0fa, #ffffff); height:1425px;">
+			<image src="../../../static/blueberry/blueberry.jpeg" mode="aspectFill" class="blueberry"></image>
+			<text class="table">关于蓝莓你知道多少？</text>
+			<text class="intro1">蓝莓是分布广泛、分布广泛的多年生开花植物群，果实为蓝色或紫色。 它们被分类在越橘属的蓝藻科中。 越橘还包括蔓越莓、越橘、越橘和马德拉蓝莓。 商业蓝莓——野生（低丛）和栽培（高丛）——都原产于北美。 高丛品种在 1930 年代引入欧洲。</text>
+			<text class="intro2">蓝莓通常是匍匐灌木，大小从 10 厘米（4 英寸）到 4 米（13 英尺）不等。 在蓝莓的商业生产中，生长在低矮灌木上的豌豆大小的小浆果被称为低丛蓝莓（野生的同义词），而生长在较高的栽培灌木上的较大浆果被称为高丛蓝莓。 加拿大是低丛蓝莓的主要生产国，而美国生产的高丛蓝莓约占世界供应量的 40%。</text>
+			<image class="plant" src="../../../static/blueberry/种植知识.png" mode="aspectFill"></image>
+			<text class="intro-plant">蓝莓也可以从种子中种植。从苗木中养育的人很多，但是我们都喜欢挑战一些不寻常的种植方法。从成熟的蓝莓中取出种子，但要记住白色种子不发芽，需要采摘棕色种子。将种子放在湿润的吸水棉上，保持吸水棉湿润，以免干燥。发芽后，转移到花盆中播种。</text>
+			<text class="shadow1"></text>
+			<image class="data-show" src="../../../static/blueberry/数据展示.png" mode="aspectFill"></image>
+			<text class="shadow2"></text>
+			<view class="echart">
+				<l-echart ref="chart"></l-echart>
 			</view>
-		</cell>
-		<cell>
-			<view class="main-content" :style="'height:' + pageHeight + 'px'">
-				<view class="sticky-view">
-					<text class="sticky-title">Sticky view</text>
-				</view>
-				<list ref="sublist" class="list" :offset-accuracy="5" :bounce="false" isSwiperList="true">
-					<cell v-for="(item, index) in dataList" :key="item.id" :ref="'item'+index" @click="onclick">
-						<view class="list-item">
-							<text>{{item.name}}</text>
-						</view>
-					</cell>
-				</list>
-			</view>
-		</cell>
-	</list>
+		</view>
+		
+	</view> -->
 </template>
-
 <script>
-	// #ifdef APP-PLUS
-	const dom = weex.requireModule('dom');
-	// #endif
-
+	import * as echarts from 'echarts';
 	export default {
 		data() {
 			return {
-				parentListId: "parentListId",
-				pageHeight: 300,
-				dataList: [],
-				refreshing: false,
-				refreshText: "",
-				refreshFlag: false
-			}
-		},
-		created() {
-			for (var i = 1; i <= 32; i++) {
-				this.dataList.push({
-					id: i,
-					name: i
-				});
-			}
-		},
-		onReady() {
-			this.pageHeight = uni.getSystemInfoSync().windowHeight;
-			uni.createSelectorQuery().in(this).select('#head').boundingClientRect().exec(rect => {
-				this.$refs.sublist.setSpecialEffects({
-					id: this.parentListId,
-					headerHeight: rect[0].height
-				});
-			});
-		},
-		methods: {
-			onrefresh(e) {
-				this.refreshing = true;
-				this.refreshText = "刷新中...";
-				setTimeout(() => {
-					this.refreshing = false;
-					this.refreshFlag = false;
-					this.refreshText = "已刷新";
-				}, 2000)
-			},
-			onpullingdown(e) {
-				if (this.refreshing) {
-					return;
+				option: {
+					grid: {
+						top:10,
+					    bottom:10,
+						width: 270,
+						height: 180,
+					},
+					
+					xAxis: {
+						type: 'category',
+						data: ['', '', '', '', '', '']
+					},
+					yAxis: {
+						type: 'value',
+					},
+					series: [{
+						data: [
+							{
+							    value: 48,
+							    itemStyle: {
+							        color: '#CA3435'
+							    }
+							},
+							{
+							    value: 23,
+							    itemStyle: {
+							        color: '#EDBF50'
+							    }
+							},
+							
+							{
+							    value: 25,
+							    itemStyle: {
+							        color: '#85D5AE'
+							    }
+							},
+							{
+							    value: 15,
+							    itemStyle: {
+							        color: '#6D96F2'
+							    }
+							},
+							{
+							    value: 9,
+							    itemStyle: {
+							        color: '#926CB8'
+							    }
+							},
+							{
+							    value: 48,
+							    itemStyle: {
+							        color: '#707E9B'
+							    }
+							},
+						],
+						type: 'bar',
+						itemStyle: {
+						      borderRadius: [20, 20, 0, 0]
+						},
+						barWidth: 20,
+						
+					}]
 				}
-
-				this.pulling = false;
-				if (Math.abs(e.pullingDistance) > Math.abs(e.viewHeight)) {
-					this.refreshFlag = true;
-					this.refreshText = "释放立即刷新";
-				} else {
-					this.refreshFlag = false;
-					this.refreshText = "下拉可以刷新";
-				}
 			}
+		},
+		mounted() {
+			// this.$refs.chart.init(echarts, chart=> {
+			// 	chart.setOption(this.option);
+				
+			// });
+			//this.$refs.chart.resize({width: 332, height: 250});
 		}
 	}
 </script>
 
 <style>
-	/* #ifndef APP-PLUS */
-	page {
-		width: 100%;
-		min-height: 100%;
-		display: flex;
-	}
-
-	/* #endif */
-
-	.page {
+	.content{
 		flex: 1;
 	}
-
-	.refresh-view {
-		width: 750rpx;
-		height: 80px;
-		flex-direction: row;
-		align-items: center;
-		justify-content: center;
+	.blueberry{
+		top: 88px;
+		margin: 0 auto;
+		width: 300px;
+		height: 300px;
+		border-radius: 290px;
+		border: 5px solid rgba(52, 124, 175, 1);
 	}
-
-	.header {
-		height: 160px;
-		flex-direction: row;
-		align-items: center;
-		justify-content: center;
-		background-color: #f4f4f4;
-	}
-
-	.header-title {
-		font-size: 30px;
+	.table{
+		font-family: "黑体";
 		font-weight: bold;
-		color: #444;
+		top: 140px;
+		margin: 0 auto;
+		font-size: 18px;
+		color: #347CAF;
 	}
-
-	.sticky-view {
-		margin-left: 12px;
-		margin-right: 12px;
-		padding: 20px;
-		background-color: #EBEBEB;
-		border-radius: 5px;
+	.intro1{
+		font-family: "黑体";
+		margin: 0 auto;
+		width: 335px;
+		line-height: 20px;
+		top: 170px;
+		text-align: left;
+		font-size: 14px;
 	}
-
-	.list {
-		flex: 1;
+	.intro2{
+		font-family: "黑体";
+		margin: 0 auto;
+		width: 335px;
+		line-height: 20px;
+		top: 180px;
+		text-align: left;
+		font-size: 14px;
 	}
-
-	.list-item {
-		margin-left: 12px;
-		margin-right: 12px;
-		margin-top: 12px;
-		padding: 20px;
-		background-color: #fff;
-		border-radius: 5px;
+	.plant{
+		top:210px;
+		margin: 0 auto;
+		width: 332px;
+		height: 49px;
+	}
+	.intro-plant{
+		margin: 0 auto;
+		width: 300px;
+		line-height: 20px;
+		top: 235px;
+		text-align: center;
+		font-size: 14px;
+	}
+	.shadow1{
+		top: 90px;
+		margin: 0 auto;
+		width: 332px;
+		height: 190px;
+		border: 1px solid #BBBBBB;
+		box-shadow: 0px 2px 5px 0px grey;
+	}
+	.data-show{
+		top:140px;
+		margin: 0 auto;
+		width: 332px;
+		height: 49px;
+	}
+	.shadow2{
+		top: 140px;
+		margin: 0 auto;
+		width: 332px;
+		height: 250px;
+		border: 1px solid #BBBBBB;
+		box-shadow: 0px 2px 5px 0px grey;
+	}
+	.echart{
+		top: -75px;
+		margin: 0 auto;
+		width: 332px;
+		height: 200px;
 	}
 </style>
