@@ -10,9 +10,13 @@
 		</view>
 	
 		<view class="info">
-			<view class="info-text">
-				<text> 习近平总书记在党的二十大报告中指出，“发展乡村特色产业，拓宽农民增收致富渠道。巩固拓展脱贫攻坚成果，增强脱贫地区和脱贫群众内生发展动力。”产业振兴助力乡村振兴，仍是建设新时代农业强国的重要课题。 </text>
-			</view>
+			<swiper :indicator-dots="true">
+				<swiper-item v-for="(item, index) in texts" :key="index">
+					<view class="info-text">
+						<text> {{item}} </text>
+					</view>		
+				</swiper-item>
+			</swiper>
 		</view>
 		
 		<view class="product-box1" @click="onclick(1)">  
@@ -45,8 +49,10 @@
 	export default {
 		data() {
 			return {
-				banner: ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg'],
-				texts: ["your texts here"]
+				texts: ["习近平总书记在党的二十大报告中指出，“发展乡村特色产业，拓宽农民增收致富渠道。巩固拓展脱贫攻坚成果，增强脱贫地区和脱贫群众内生发展动力。”产业振兴助力乡村振兴，仍是建设新时代农业强国的重要课题。",
+						"作为2020年成功摘掉国家级贫困县帽子的河南省鲁山县，其所辖的库区乡于2012年开始走上发展蓝莓产业的道路，经过十多年种植摸索，已经成为“中原蓝莓第一乡”。可以说，在该县的脱贫攻坚战中，小小蓝莓发挥了巨大作用。",
+						"来自南京大学”豫见山海“社会实践团队的同学们在暑假期间，来到河南省鲁山县东许庄村，实地走访当地村民、村干部、企业工作人员、高校研究人员，探究”小小蓝精灵，铺就致富路“背后的秘密，亲身体会乡村振兴的生机活力。",
+						],
 				// pageIndex: 1,
 				// loadding: false,
 				// pullUpOn: true,
@@ -254,6 +260,8 @@
 	
 	.info-text{
 		position: absolute;
+		padding-left: 20px;
+		padding-right: 20px;
 		top: 20px;
 	}
 	
