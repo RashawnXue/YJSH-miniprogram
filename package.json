@@ -20,9 +20,6 @@
 		"url": "https://github.com/dcloudio/hello-uniapp/issues"
 	},
 	"homepage": "https://github.com/dcloudio/hello-uniapp#readme",
-	"dependencies": {
-		"echarts": "^5.4.3"
-	},
 	"dcloudext": {
 		"category": [
 			"前端页面模板",

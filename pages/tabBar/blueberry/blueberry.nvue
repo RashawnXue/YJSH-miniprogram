@@ -1,114 +1,282 @@
 <template>
-	<view class="content">
-		<view style="background-image: linear-gradient(to bottom, #dcf0fa, #ffffff); height:1425px;">
+	<view class="content" style="background-image: linear-gradient(to bottom, #dcf0fa, #ffffff); height: 2350px;">
+		<view>
 			<image src="../../../static/blueberry/blueberry.jpeg" mode="aspectFill" class="blueberry"></image>
-			<text class="table">关于蓝莓你知道多少？</text>
-			<text class="intro1">蓝莓是分布广泛、分布广泛的多年生开花植物群，果实为蓝色或紫色。 它们被分类在越橘属的蓝藻科中。 越橘还包括蔓越莓、越橘、越橘和马德拉蓝莓。 商业蓝莓——野生（低丛）和栽培（高丛）——都原产于北美。 高丛品种在 1930 年代引入欧洲。</text>
-			<text class="intro2">蓝莓通常是匍匐灌木，大小从 10 厘米（4 英寸）到 4 米（13 英尺）不等。 在蓝莓的商业生产中，生长在低矮灌木上的豌豆大小的小浆果被称为低丛蓝莓（野生的同义词），而生长在较高的栽培灌木上的较大浆果被称为高丛蓝莓。 加拿大是低丛蓝莓的主要生产国，而美国生产的高丛蓝莓约占世界供应量的 40%。</text>
-			<image class="plant" src="../../../static/blueberry/种植知识.png" mode="aspectFill"></image>
-			<text class="intro-plant">蓝莓也可以从种子中种植。从苗木中养育的人很多，但是我们都喜欢挑战一些不寻常的种植方法。从成熟的蓝莓中取出种子，但要记住白色种子不发芽，需要采摘棕色种子。将种子放在湿润的吸水棉上，保持吸水棉湿润，以免干燥。发芽后，转移到花盆中播种。</text>
-			<text class="shadow1"></text>
-			<image class="data-show" src="../../../static/blueberry/数据展示.png" mode="aspectFill"></image>
-			<text class="shadow2"></text>
-			<view class="echart">
-				<l-echart ref="chart"></l-echart>
-			</view>
-		</view>
 		
+			<text class="table">关于蓝莓你知道多少？</text>
+			<text class="intro1">蓝莓，杜鹃花科越橘属植物，为多年生落叶或常绿果树，呈灌木，果实为浆果。蓝莓果实呈蓝色，近圆形，单果重 0.5-2.5克，最大可达3.5-5.0克，果肉细腻，种子极小，甜酸适度，且具有香爽宜人的香气。蓝莓最早产于美国，20世纪初，人们开始尝试将野生状态的蓝莓树驯化并进行商业生产，目前为人熟知的蓝莓品种的大部分源于北美洲。蓝莓在全球都有种植，主要产自充足阳光的地区，例如朝鲜、蒙古、俄罗斯、北美洲和我国的黑龙江、内蒙古、吉林长白山地区。</text>
+			<text class="intro2">蓝莓主要生长于海拔900 ~ 2300 m的地区，喜凉爽，绝对最低温度大于-15℃，小于7.2℃的低温需保持在800~1200h之间；蓝莓适宜生活于PH为4.0~5.5的酸性土壤中，喜阳；作为浅根系植物，蓝莓既不耐旱也不耐涝，因此需要种植于疏松透气、排水良好的土壤中，并需要配备一定的灌溉条件，因此最常见于针叶林、山地苔原和牧场，也是石楠灌丛的重要组成部分。</text>
+		</view>	
+		<view>
+			<image src="../../../static/blueberry/矩形.png" class="rectangle_1"></image>
+			<text class="title_1">蓝莓种类</text>
+			<image src="../../../static/blueberry/star.png" class="star_1" mode="aspectFit"></image>
+			<text class="shadow_1"></text>
+		</view>	
+		<view>
+			<view class="blueberry-style">
+			<view>
+				<button class="guolan" @click="toggle('1')">
+					<text class="button-text">果蓝</text>
+				</button>
+			</view>
+			<view>
+				<uni-popup ref="popup1"  @change="change">
+					<view class="popup-content">
+						<text class="text">果蓝：\n\n相对晚熟，甜度很高，产量稳定。</text>
+					</view>
+				</uni-popup>
+			</view>
+			
+			<view>
+				<button class="fenlan" @click="toggle('2')">
+					<text class="button-text">粉蓝</text>
+				</button>
+			</view>
+			<view>
+				<uni-popup ref="popup2"  @change="change">
+					<view class="popup-content">
+						<text class="text">粉蓝：\n\n蓝莓中较为早熟的一个品种，个头较大，汁水充足，味道较为甘甜。</text>
+					</view>
+				</uni-popup>
+			</view>
+			
+			<view>
+				<button class="tuyan" @click="toggle('3')">
+					<text class="button-text">兔眼蓝莓</text>
+				</button>
+			</view>
+			<view>
+				<uni-popup ref="popup3"  @change="change">
+					<view class="popup-content">
+						<text class="text">兔眼蓝莓：\n\n成熟前颜色鲜红与兔眼类似，由此得名。多为人工栽培，汁水较为充足，口感非常甘甜。</text>
+					</view>
+				</uni-popup>
+			</view>
+			
+			<view>
+				<button class="shuangfeng" @click="toggle('4')">
+					<text class="button-text">双丰</text>
+				</button>
+			</view>
+			<view>
+				<uni-popup ref="popup4"  @change="change">
+					<view class="popup-content">
+						<text class="text">双丰：\n\n别名甜心，口感非常甜。不仅有着蓝莓本身的香甜，还有一股浓郁的芒果味。</text>
+					</view>
+				</uni-popup>
+			</view>
+			
+			<view>
+				<button class="dikexi" @click="toggle('5')">
+					<text class="button-text">迪克西</text>
+				</button>
+			</view>
+			<view>
+				<uni-popup ref="popup5"  @change="change">
+					<view class="popup-content">
+						<text class="text">迪克西：\n\n晚熟的杂交蓝莓品种，果粒较大，甜度较高，产量也非常高；且存活率较高，适合种植。</text>
+					</view>
+				</uni-popup>
+			</view>
+			
+			<view>
+				<button class="bilexi" @click="toggle('6')">
+					<text class="button-text">比乐西</text>
+				</button>
+			</view>
+			<view>
+				<uni-popup ref="popup6"  @change="change">
+					<view class="popup-content">
+						<text class="text">比乐西：\n\n成熟期相对较早，果肉较为硬实，果实上的果蒂伤痕极小，尝起来有着甜甜的鲜食口感。</text>
+					</view>
+				</uni-popup>
+			</view>
+			
+			<view>
+				<button class="gongjue" @click="toggle('7')">
+					<text class="button-text">公爵</text>
+				</button>
+			</view>
+			<view>
+				<uni-popup ref="popup7"  @change="change">
+					<view class="popup-content">
+						<text class="text">公爵：\n\n美国农业部和泽西市农场合作研发的品种，具有丰产稳产的特点。</text>
+					</view>
+				</uni-popup>
+			</view>
+			
+			<view>
+				<button class="lanfeng" @click="toggle('8')">
+					<text class="button-text">蓝丰</text>
+				</button>
+			</view>
+			<view>
+				<uni-popup ref="popup8"  @change="change">
+					<view class="popup-content">
+						<text class="text">蓝丰：\n\n植株高度在1.2-1.8米之间，果实甜度高，酸味少。</text>
+					</view>
+				</uni-popup>
+			</view>
+			
+			<view>
+				<button class="ruika" @click="toggle('9')">
+					<text class="button-text">瑞卡</text>
+				</button>
+			</view>
+			<view>
+				<uni-popup ref="popup9"  @change="change">
+					<view class="popup-content">
+						<text class="text">瑞卡：\n\n1988年新西兰推出的品种，果实直径在12-14mm之间，果皮质地硬。</text>
+					</view>
+				</uni-popup>
+			</view>
+			
+			<view>
+				<button class="xilai" @click="toggle('0')">
+					<text class="button-text">喜来</text>
+				</button>
+			</view>
+			<view>
+				<uni-popup ref="popup0"  @change="change">
+					<view class="popup-content">
+						<text class="text">喜来：\n\n早熟品种，具有果肉硬、甜度大、收货期长的特点。</text>
+					</view>
+				</uni-popup>
+			</view>
+			</view>
+		</view>	
+		<view>
+			<image src="../../../static/blueberry/矩形.png" class="rectangle_2"></image>
+			<text class="title_2">种植知识</text>
+			<image src="../../../static/blueberry/star.png" class="star_2" mode="aspectFit"></image>
+			<text class="shadow_2"></text>
+		</view>	
+		<view>
+			<view class="swiper_item_plant">
+			    <swiper :autoplay="true" :interval="8000">
+			      <swiper-item>
+			        <text class="swiper-title">1.苗株种植</text>
+					<text class="swiper-text"> 北方地区一般都是选择春天的时候种植，秋天的时候种植也可以，但容易因为管理不当而导致幼苗遭受到冻害而死亡；南方更适合在秋季种植。在栽植的时候，需要在小坑里面放入湿的酸性的草炭灰或者是配置好的种植土，之后再把植株栽入，让它的根系舒展开来，再添加混合的草炭灰包围在根的周围，覆土直到与地面平整为止。</text>
+			      </swiper-item>
+				  <swiper-item>
+				    <text class="swiper-title">2.地表覆盖</text>
+				  	<text class="swiper-text"> 地表覆盖的方式可以调节地表温度，防止水分蒸发，并且有效的存进根系进行生长。覆盖的材质可以是稻草、树皮、木屑等等。</text>
+				  </swiper-item>
+				  <swiper-item>
+				    <text class="swiper-title">3.施肥</text>
+				  	<text class="swiper-text">  对于蓝莓而言，因为根系非常的脆弱，所以对肥料非常的敏感，如果施肥过多，会因为土壤的浓度过厚从而造成根系的损伤而导致植株直接的死亡。所以施肥的量不宜太多，主要是以淡的人尿粪为主，结果期间需要喷洒一定量的营养液来增加果实的膨大，施肥是该繁殖的核心关键要点。</text>
+				  </swiper-item>
+				  <swiper-item>
+				    <text class="swiper-title">4.幼苗越冬保护</text>
+				  	<text class="swiper-text"> 虽然说蓝莓具有一定的抗寒能力，但是仍然有冻害的产生，所以我们需要对蓝莓树进行越冬保护，比如说堆雪防寒等等。</text>
+				  </swiper-item>
+				  <swiper-item>
+				    <text class="swiper-title">5.病虫害</text>
+				  	<text class="swiper-text"> 蓝莓植株抗病虫害的能力较强，一般不会遭受病虫害，但需要在成熟期预防鸟类啄食。</text>
+				  </swiper-item>
+			    </swiper>
+			</view>
+		</view>	
+		<view>
+			<image src="../../../static/blueberry/矩形.png" class="rectangle_3"></image>
+			<text class="title_3">蓝莓价值</text>
+			<image src="../../../static/blueberry/star.png" class="star_3" mode="aspectFit"></image>
+			<text class="shadow_3"></text>
+		</view>	
+		<view>
+			<view class="swiper_item_value">
+			    <swiper :autoplay="true" :interval="8000">
+			      <swiper-item>
+			        <text class="swiper-title">1.营养价值</text>
+					<text class="swiper-text"> 热量低但营养丰富；富含维C与花青素，是抗氧化食物之王，有助于维持大脑功能和提高记忆力与保护视力；可以减少DNA损伤，有助于防止衰老和癌症；能保护血液中的胆固醇免受损害；可以降血压，预防心脏病；蓝莓中的花青素可能有抗糖尿病的作用；其中的抗黏合剂可以抵抗尿路感染；可以减少剧烈运动后的肌肉损伤。</text>
+			      </swiper-item>
+				  <swiper-item>
+				    <text class="swiper-title">2.经济价值</text>
+				  	<text class="swiper-text"> 蓝莓营养丰富，果实风味极佳，可鲜食。可通过二次加工生产蓝莓酒、蓝莓果酱、蓝莓果脯、蓝莓果醋、蓝莓饮料等产品，扩充市场地位；还可通过更深入的精加工，提取其中的花青素、维C等物质生产经济效益更高的保健类绿色药品，同样广受大众喜爱。</text>
+				  </swiper-item>
+				  <swiper-item>
+				    <text class="swiper-title">3.社会价值</text>
+				  	<text class="swiper-text"> 蓝莓作为河南省平顶山市鲁山县库区乡的主要扶贫产业，其种植、养护、采摘及后续加工线的产生对农村失业人口的再就业以及村中贫困户年收入的扶持具有极其重要的意义。</text>
+				  </swiper-item>
+			    </swiper>
+			</view>
+		</view>	
+		<view>
+			<image src="../../../static/blueberry/矩形.png" class="rectangle_4"></image>
+			<text class="title_4">育种方式</text>
+			<image src="../../../static/blueberry/star.png" class="star_4" mode="aspectFit"></image>
+			<text class="shadow_4"></text>
+		</view>	
+		<view>
+			<image src="../../../static/blueberry/蓝莓品种.png" class="data" mode="aspectFit" @click="clickImg"></image>
+		</view>	
+		<view class="other">
+			<uni-link href="https://baijiahao.baidu.com/s?id=1746474834531989303&wfr=spider&for=pc&searchword=2022%E5%B9%B4%E4%B8%AD%E5%9B%BD%E8%93%9D%E8%8E%93%E4%BA%A7%E4%B8%9A%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A" 
+				text="以上资料与图片参考自——云果网：2022年中国蓝莓产业数据分析报告" 
+				font-size="12" color="#a6a6a6" showUnderLine="false"></uni-link>
+		</view>
 	</view>
 </template>
 <script>
-	import * as echarts from 'echarts';
 	export default {
 		data() {
 			return {
-				option: {
-					grid: {
-						top:10,
-					    bottom:10,
-						width: 270,
-						height: 180,
-					},
-					
-					xAxis: {
-						type: 'category',
-						data: ['', '', '', '', '', '']
-					},
-					yAxis: {
-						type: 'value',
-					},
-					series: [{
-						data: [
-							{
-							    value: 48,
-							    itemStyle: {
-							        color: '#CA3435'
-							    }
-							},
-							{
-							    value: 23,
-							    itemStyle: {
-							        color: '#EDBF50'
-							    }
-							},
-							
-							{
-							    value: 25,
-							    itemStyle: {
-							        color: '#85D5AE'
-							    }
-							},
-							{
-							    value: 15,
-							    itemStyle: {
-							        color: '#6D96F2'
-							    }
-							},
-							{
-							    value: 9,
-							    itemStyle: {
-							        color: '#926CB8'
-							    }
-							},
-							{
-							    value: 48,
-							    itemStyle: {
-							        color: '#707E9B'
-							    }
-							},
-						],
-						type: 'bar',
-						itemStyle: {
-						      borderRadius: [20, 20, 0, 0]
-						},
-						barWidth: 20,
-						
-					}]
-				}
+				
 			}
 		},
 		mounted() {
-			this.$refs.chart.init(echarts, chart=> {
-				chart.setOption(this.option);
-				
-			});
-			//this.$refs.chart.resize({width: 332, height: 250});
+			
+		},
+		methods:{
+			toggle(a) {
+					if(a === '1'){
+						this.$refs.popup1.open('center')
+					}else if(a === '2'){
+						this.$refs.popup2.open('center')
+					}else if(a === '3'){
+						this.$refs.popup3.open('center')
+					}else if(a === '4'){
+						this.$refs.popup4.open('center')
+					}else if(a === '5'){
+						this.$refs.popup5.open('center')
+					}else if(a === '6'){
+						this.$refs.popup6.open('center')
+					}else if(a === '7'){
+						this.$refs.popup7.open('center')
+					}else if(a === '8'){
+						this.$refs.popup8.open('center')
+					}else if(a === '9'){
+						this.$refs.popup9.open('center')
+					}else if(a === '0'){
+						this.$refs.popup0.open('center')
+					}
+			},
+			clickImg() {
+				uni.previewImage({
+					urls: ["https://s1.ax1x.com/2023/08/28/pPanA0K.png"],
+				})
+			},
 		}
 	}
 </script>
 
 <style>
 	.content{
+		display: flex;
 		flex: 1;
+		overflow: hidden;
 	}
+	
 	.blueberry{
 		top: 88px;
 		margin: 0 auto;
 		width: 300px;
 		height: 300px;
-		border-radius: 290px;
+		border-radius: 295px;
 		border: 5px solid rgba(52, 124, 175, 1);
 	}
+	
 	.table{
 		font-family: "黑体";
 		font-weight: bold;
@@ -135,46 +303,240 @@
 		text-align: left;
 		font-size: 14px;
 	}
-	.plant{
-		top:210px;
+	
+	.rectangle_1{
+		top: 210px;
 		margin: 0 auto;
 		width: 332px;
 		height: 49px;
 	}
-	.intro-plant{
+	.title_1{
+		top:174px;
+		font-size: 18px;
+		color: #fff;
+		left: 17%;
+		font-weight: bold;
+	}
+	.star_1{
+		top:138px;
+		left: 36%;
+		height: 48px;
+	}
+	.shadow_1{
+		top: 138px;
+		margin: 0 auto;
+		width: 332px;
+		height: 330px;
+		border: 1px solid #BBBBBB;
+		box-shadow: 0px 2px 5px 0px grey;
+	}
+	
+
+	.guolan{
+		top: -160px;
+		left: 20%;
+		width: 103px;
+		height: 37px;
+		background-color: #7C9FCD;
+	}
+	.fenlan{
+		top: -140px;
+		left: 20%;
+		width: 103px;
+		height: 37px;
+		background-color: #7C9FCD;
+	}
+	.tuyan{
+		top: -120px;
+		left: 20%;
+		width: 103px;
+		height: 37px;
+		background-color: #7C9FCD;
+	}
+	.shuangfeng{
+		top: -100px;
+		left: 20%;
+		width: 103px;
+		height: 37px;
+		background-color: #7C9FCD;
+	}
+	.dikexi{
+		top: -80px;
+		left: 20%;
+		width: 103px;
+		height: 37px;
+		background-color: #7C9FCD;
+	}
+	.bilexi{
+		top: -346px;
+		left: 55%;
+		width: 103px;
+		height: 37px;
+		background-color: #7C9FCD;
+	}
+	.gongjue{
+		top: -326px;
+		left: 55%;
+		width: 103px;
+		height: 37px;
+		background-color: #7C9FCD;
+	}
+	.lanfeng{
+		top: -306px;
+		left: 55%;
+		width: 103px;
+		height: 37px;
+		background-color: #7C9FCD;
+	}
+	.ruika{
+		top: -286px;
+		left: 55%;
+		width: 103px;
+		height: 37px;
+		background-color: #7C9FCD;
+	}
+	.xilai{
+		top: -266px;
+		left: 55%;
+		width: 103px;
+		height: 37px;
+		background-color: #7C9FCD;
+	}
+	
+	.button-text {
+		color: #fff;
+		font-size: 16px;
+		top: -5px;
+	}
+	.popup-content {
+		align-items: center;
+		justify-content: center;
+		padding: 10px;
+		height: 230px;
+		width: 230px;
+		background-color: #dcf0fa;
+		border-radius: 20px;
+	}
+	.text {
+		font-size: 18px;
+		color: #333;
+		width: 200px;
+		text-align: left;
+		margin: 0 auto;
+	}
+	
+	.rectangle_2{
+		top: -180px;
+		margin: 0 auto;
+		width: 332px;
+		height: 49px;
+	}
+	.title_2{
+		top:-217px;
+		font-size: 18px;
+		color: #fff;
+		left: 17%;
+		font-weight: bold;
+	}
+	.star_2{
+		top:-253px;
+		left: 36%;
+		height: 48px;
+	}
+	.shadow_2{
+		top:-253px;
+		margin: 0 auto;
+		width: 332px;
+		height: 220px;
+		border: 1px solid #BBBBBB;
+		box-shadow: 0px 2px 5px 0px grey;
+	}
+	
+	.swiper_item_plant {
+	    top: -450px;
+	    margin: 0 auto;
+	    width: 300px;
+	}
+	.swiper_item_value{
+		top: -620px;
 		margin: 0 auto;
 		width: 300px;
-		line-height: 20px;
-		top: 235px;
+	}
+	.swiper-title{
 		text-align: center;
+		font-family: "黑体";
+		font-size: 18px;
+		color: #347CAF;
+	}
+	.swiper-text{
+		line-height: 18px;
+		text-align: left;
+		font-family: "黑体";
 		font-size: 14px;
 	}
-	.shadow1{
-		top: 90px;
-		margin: 0 auto;
-		width: 332px;
-		height: 190px;
-		border: 1px solid #BBBBBB;
-		box-shadow: 0px 2px 5px 0px grey;
-	}
-	.data-show{
-		top:140px;
+	
+	.rectangle_3{
+		top: -350px;
 		margin: 0 auto;
 		width: 332px;
 		height: 49px;
 	}
-	.shadow2{
-		top: 140px;
+	.title_3{
+		top:-387px;
+		font-size: 18px;
+		color: #fff;
+		left: 17%;
+		font-weight: bold;
+	}
+	.star_3{
+		top:-423px;
+		left: 36%;
+		height: 48px;
+	}
+	.shadow_3{
+		top:-422px;
 		margin: 0 auto;
 		width: 332px;
-		height: 250px;
+		height: 220px;
 		border: 1px solid #BBBBBB;
 		box-shadow: 0px 2px 5px 0px grey;
 	}
-	.echart{
-		top: -75px;
+	
+	.rectangle_4{
+		top: -520px;
 		margin: 0 auto;
 		width: 332px;
-		height: 200px;
+		height: 49px;
+	}
+	.title_4{
+		top:-557px;
+		font-size: 18px;
+		color: #fff;
+		left: 17%;
+		font-weight: bold;
+	}
+	.star_4{
+		top:-593px;
+		left: 36%;
+		height: 48px;
+	}
+	.shadow_4{
+		top:-592px;
+		margin: 0 auto;
+		width: 332px;
+		height: 220px;
+		border: 1px solid #BBBBBB;
+		box-shadow: 0px 2px 5px 0px grey;
+	}
+	.data{
+		top:-820px;
+		margin: 0 auto;
+		width: 330px;
+	}
+	
+	.other{
+		top:-790px;
+		margin: 0 auto;
+		width: 332px;
 	}
 </style>
