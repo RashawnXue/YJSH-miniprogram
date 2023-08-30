@@ -25,7 +25,7 @@
 						<view class="list-item" :style='"width: 726rpx; height: 668rpx; display: flex; box-sizing: border-box; left: 0rpx; top: 0rpx"'>
 							<div >
 							<image src="../../../static/image/documentary/clock.png" class="clock"  style="width: 86rpx; height: 85rpx; display: block; box-sizing: border-box; left: -39rpx; top: -26rpx; position: relative"></image>
-							<text  class="time" style="position:relative;left:92rpx;top:-93rpx">{{item.time}}</text>
+							<text  class="time" style="position:relative;left:48rpx;top:-93rpx">{{item.time}}</text>
 							<image src="../../../static/image/documentary/line.png" class="line" style="position: relative; left: 0rpx; top: -39rpx; width: 6rpx; height: 493rpx; display: block; box-sizing: border-box"></image>
 							<div v-on:click="toMessage(index)"  style="width: 687rpx; height: 11rpx; display: flex; box-sizing: border-box; left: 0rpx; top: 0rpx">
 							<image src="../../../static/image/documentary/mainbox.png" class="mainbox" style="position: absolute; left: 19rpx; top: -579rpx; width: 672rpx; height: 558rpx; display: block; box-sizing: border-box"></image>
