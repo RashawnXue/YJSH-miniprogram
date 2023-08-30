@@ -282,7 +282,7 @@ height: 220rpx;
 line-height: 50rpx;
 color: rgba(16, 16, 16, 1);
 font-size: 35rpx;
-text-align: center;
+text-align: left;
 font-family: Arial;
 z-index: 4;
 }
