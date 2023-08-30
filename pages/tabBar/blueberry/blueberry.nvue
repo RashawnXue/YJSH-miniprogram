@@ -155,7 +155,7 @@
 			    <swiper autoplay indicator-dots circular interval=8000 indicator-active-color="#347CAF" indicator-color="#7C9FCD">
 			      <swiper-item>
 			        <text class="swiper-title">1.苗株种植</text>
-					<text class="swiper-text"> 北方一般选择春天种植，秋天种植也可以，但容易因管理不当导致幼苗遭受冻害死亡；南方更适合在秋季种植。在栽植时，要在小坑里放入湿的酸性草炭灰或者是配置好的种植土，之后把植株栽入，让它的根系舒展开来，再添加混合的草炭灰包围在根的周围，覆土到与地面平整为止。</text>
+					<text class="swiper-text"> 北方一般选择春天种植，秋天种植也可以，但容易导致幼苗遭受冻害死亡；南方更适合在秋季种植。栽植时要在小坑里放入湿的酸性草炭灰或者配置好的种植土，之后把植株栽入，让它的根系舒展开来，添加混合的草炭灰包围在根的周围，覆土到平整为止。</text>
 			      </swiper-item>
 				  <swiper-item>
 				    <text class="swiper-title">2.地表覆盖</text>
@@ -163,7 +163,7 @@
 				  </swiper-item>
 				  <swiper-item>
 				    <text class="swiper-title">3.施肥</text>
-				  	<text class="swiper-text">  对于蓝莓而言，因为根系非常的脆弱，所以对肥料非常的敏感，如果施肥过多，会因为土壤的浓度过厚从而造成根系的损伤而导致植株直接的死亡。所以施肥的量不宜太多，主要是以淡的人尿粪为主，结果期间需要喷洒一定量的营养液来增加果实的膨大，施肥是该繁殖的核心关键要点。</text>
+				  	<text class="swiper-text">  对于蓝莓而言，因为根系脆弱，所以对肥料非常的敏感，如果施肥过多，会因为土壤的浓度过厚造成根系的损伤而导致植株死亡。所以施肥的量不宜太多，主要是以淡的人尿粪为主，结果期间需要喷洒一定量的营养液来膨大果实，施肥是该繁殖的核心要点。</text>
 				  </swiper-item>
 				  <swiper-item>
 				    <text class="swiper-title">4.幼苗越冬保护</text>
@@ -186,7 +186,7 @@
 			    <swiper autoplay indicator-dots circular interval=8000 indicator-active-color="#347CAF" indicator-color="#7C9FCD">
 			      <swiper-item>
 			        <text class="swiper-title">1.营养价值</text>
-					<text class="swiper-text"> 热量低但营养丰富；富含维C与花青素，是抗氧化食物之王，有助于提高记忆力与保护视力；可以减少DNA损伤，有助于防止衰老和癌症；能保护血液中的胆固醇免受损害；可以降血压，预防心脏病；其中的抗黏合剂可以抵抗尿路感染；可以减少剧烈运动后的肌肉损伤。</text>
+					<text class="swiper-text"> 热量低但营养丰富；富含维C与花青素，是抗氧化食物之王，有助于提高记忆力与保护视力；可以减少DNA损伤，有助于防止衰老和癌症；能保护胆固醇免受损害；可以降血压，预防心脏病；其中的抗黏合剂可以抵抗尿路感染；可以减少运动后的肌肉损伤。</text>
 			      </swiper-item>
 				  <swiper-item>
 				    <text class="swiper-title">2.经济价值</text>
