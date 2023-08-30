@@ -31,7 +31,7 @@
 							<image src="../../../static/image/documentary/mainbox.png" class="mainbox" style="position: absolute; left: 19rpx; top: -579rpx; width: 672rpx; height: 558rpx; display: block; box-sizing: border-box"></image>
 							<image :src="item.imgsrc" class="msgimg"  style="position: absolute; left: 39rpx; top: -558rpx; width: 628rpx; height: 288rpx; display: block; box-sizing: border-box"></image>
 							<text class="maintopic"  style="position: relative; left: 39rpx; top: -251rpx">{{item.topic}}</text>
-							<text class="maincontent" style="position: relative; left: 39rpx; top: -214rpx; width: 626rpx; height: 169rpx; display: block; box-sizing: border-box">{{item.content}}</text>
+							<text class="maincontent" style="position: relative; left: 39rpx; top: -214rpx; width: 648rpx; height: 169rpx; display: block; box-sizing: border-box">{{item.content}}</text>
 							</div>
 							</div>
 						</view>
