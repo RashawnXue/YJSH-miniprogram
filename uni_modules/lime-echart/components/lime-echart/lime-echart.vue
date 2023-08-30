@@ -1,3 +1,4 @@
+
 <template>
 	<view >
 		<view style="height: 750rpx; background-color: aquamarine; position: relative">
@@ -146,4 +147,5 @@
 		background-color: rgba(255, 255, 255, 0.8);
 		padding: 20rpx;
 	}
+
 </style>

@@ -1,5 +1,7 @@
+
 const cacheChart = {}
 const fontSizeReg = /([\d\.]+)px/;
+
 class EventEmit {
 	constructor() {
 		this.__events = {};
@@ -45,6 +47,7 @@ class EventEmit {
 			}
 		}
 	}
+
 }
 class Image {
 	constructor() {
@@ -381,4 +384,5 @@ export function setCanvasCreator(echarts, {canvas, node}) {
 			}
 		})
 	}
+
 }

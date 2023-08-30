@@ -1,3 +1,4 @@
+
 ## 0.7.9（2023-07-29）
 - chore: 更新文档
 ## 0.7.8（2023-07-29）
@@ -80,6 +81,7 @@
 - 词云下载地址[echart-wordcloud](https://ext.dcloud.net.cn/plugin?id=8430)
 ## 0.3.9（2022-06-02）
 - chore: 更新文档
+
 - tips: lines 不支持 `trailLength`
 ## 0.3.8（2022-05-31）
 - fix: 修复 因mouse事件冲突tooltip跳动问题
@@ -161,3 +163,4 @@ this.$refs.chart.setOption(data)
 - 已知BUG：非2d 无法使用背景色，已反馈官方
 - 已知BUG：头条 百度 有许些偏移
 - 后期计划：兼容nvue
+

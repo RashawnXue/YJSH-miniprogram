@@ -1,3 +1,4 @@
+
 // #ifndef APP-NVUE
 // 计算版本
 export function compareVersion(v1, v2) {
@@ -49,6 +50,7 @@ export function canIUseCanvas2d() {
 	return false
 }
 
+
 export function convertTouchesToArray(touches) {
   // 如果touches是一个对象，则转换为数组
   if (typeof touches === 'object' && touches !== null) {
@@ -57,6 +59,7 @@ export function convertTouchesToArray(touches) {
   
   // 如果touches不是对象，则直接返回它
   return touches;
+
 }
 
 export function wrapTouch(event) {
@@ -132,4 +135,5 @@ export function getRect(selector, options = {}) {
 			}, result).exec()
 		}
 	});
+
 };

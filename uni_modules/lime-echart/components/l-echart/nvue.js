@@ -1,3 +1,4 @@
+
 export class Echarts {
 	constructor(webview) {
 		this.webview = webview
@@ -32,4 +33,5 @@ export class Echarts {
 	on(type, ...args) {
 		console.warn('nvue 暂不支持事件')
 	}
+
 }

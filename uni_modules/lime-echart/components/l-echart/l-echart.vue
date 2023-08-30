@@ -1,3 +1,4 @@
+
 <template>
 	<view class="lime-echart" :style="customStyle" v-if="canvasId" ref="limeEchart" :aria-label="ariaLabel">
 		<!-- #ifndef APP-NVUE -->
@@ -464,3 +465,4 @@ export default {
 	/* #endif */
 }
 </style>
+
