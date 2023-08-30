@@ -345,6 +345,15 @@
             }
             
         }
+        ,{
+            "path" : "pages/tabBar/documentary/message",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"subPackages": [{
 			"root": "pages/API",

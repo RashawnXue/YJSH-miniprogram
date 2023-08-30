@@ -1,13 +1,8 @@
 <template>
-<div class="modal-mask" @click.self="close">
+<div class="modal-mask"  @click.self="close">
 <div class="modal-container">
-<div class="modal-header">
-<slot name="header">
-默认标题
-</slot>
-</div>
-<div class="modal-body">
-<slot name="body">
+<div class="modal-body" style="width: 375rpx; height: 66rpx; display: block; box-sizing: border-box">
+<slot name="body" >
 默认内容
 </slot>
 </div>
@@ -19,7 +14,8 @@ export default {
 methods: {
 close() {
 this.$emit('changeshow', 'false');
-}
+},
+nothing(){}
 }
 };
 </script>
@@ -34,12 +30,12 @@ background-color: rgba(0, 0, 0, 0.5);
 display: flex;
 justify-content: center;
 align-items: center;
-z-index: 4;
+z-index: 6;
 }
 .modal-container {
 background-color: #fff;
-padding: 20px;
 border-radius: 5px;
 width: 50%;
+z-index: 7;
 }
 </style>
