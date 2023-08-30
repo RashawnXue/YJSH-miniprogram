@@ -205,7 +205,7 @@
 			<text class="shadow_4"></text>
 		</view>	
 		<view>
-			<image src="../../../static/blueberry/蓝莓品种.png" class="data" mode="aspectFit" @click="clickImg"></image>
+			<image src="https://rashawn.oss-cn-shanghai.aliyuncs.com/img/graph4.png" class="data" mode="aspectFit" @click="clickImg"></image>
 		</view>	
 		
 		<view class="other">以上资料与图片参考自：</view>
