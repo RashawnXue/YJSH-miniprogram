@@ -190,7 +190,7 @@
 	
 	.text3{
 		position: absolute;
-		top: 15px;
+		top: 30px;
 		width: 100%;
 		height: 57px;
 		color: rgba(251, 251, 251, 1);
@@ -202,7 +202,7 @@
 	
 	.text4{
 		position: absolute;
-		top: 45px;
+		top: 30px;
 		width: 100%;
 		height: 41px;
 		color: rgba(251, 251, 251, 1);
@@ -213,7 +213,7 @@
 	
 	.text5{
 		position: absolute;
-		top: 15px;
+		top: 30px;
 		width: 100%;
 		height: 57px;
 		color: rgba(251, 251, 251, 1);
@@ -228,7 +228,7 @@
 		left: 5%;
 		top: 325px;
 		width: 43%;
-		height: 101px;
+		height: 80px;
 		line-height: 20px;
 		border-radius: 10px;
 		background-color: rgba(105, 192, 255, 1);
@@ -241,7 +241,7 @@
 		right: 5%;
 		top: 325px;
 		width: 43%;
-		height: 101px;
+		height: 80px;
 		line-height: 20px;
 		border-radius: 10px;
 		background-color: rgba(149, 222, 100, 1);
@@ -252,7 +252,7 @@
 	.show-text{
 		position: absolute;
 		margin-left: 35%;
-		top: 442px;
+		top: 422px;
 		width: 30%;
 		height: 34px;
 		line-height: 23px;
@@ -267,7 +267,7 @@
 	.stats1{
 		position: absolute;
 		left: 5%;
-		top: 490px;
+		top: 470px;
 		width: 90%;
 		height: 248px;
 		line-height: 20px;
@@ -280,7 +280,7 @@
 	.stats2{
 		position: absolute;		
 		left: 5%;
-		top: 802px;
+		top: 782px;
 		width: 90%;
 		height: 248px;
 		line-height: 20px;
@@ -293,7 +293,7 @@
 	.ref{
 		position: absolute;
 		left: 5%;
-		top: 1200px;
+		top: 1180px;
 		width: 90%;
 		
 		color: rgba(138, 138, 138, 1.0);
