@@ -63,6 +63,38 @@
 			}
 		},
 		{
+			"path": "pages/component/detail/detail1",
+			"style": {
+				"navigationBarTitleText": "产业成果1",
+				"app-plus": {
+					"titleNView": {
+						"buttons": [{
+							"text": "\ue534",
+							"fontSrc": "/static/uni.ttf",
+							"fontSize": "22px",
+							"color": "#FFFFFF"
+						}]
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/component/detail/detail2",
+			"style": {
+				"navigationBarTitleText": "产业成果2",
+				"app-plus": {
+					"titleNView": {
+						"buttons": [{
+							"text": "\ue534",
+							"fontSrc": "/static/uni.ttf",
+							"fontSize": "22px",
+							"color": "#FFFFFF"
+						}]
+					}
+				}
+			}
+		},
+		{
 			"path": "pages/component/view/view",
 			"style": {
 				"navigationBarTitleText": "view"
