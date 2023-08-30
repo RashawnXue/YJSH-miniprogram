@@ -252,9 +252,10 @@
 	.show-text{
 		position: absolute;
 		margin-left: 35%;
+		padding-top: 5px;
 		top: 422px;
 		width: 30%;
-		height: 34px;
+		height: 29px;
 		line-height: 23px;
 		border-radius: 10px 10px 10px 10px;
 		background-color: rgba(154, 154, 154, 1);
